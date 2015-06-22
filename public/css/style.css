@@ -1,0 +1,13 @@
+
+
+#messages{
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    opacity: 0.9;
+}
+
+#messages div.alert:hover{
+    color: black;
+    font-weight: 600;
+}

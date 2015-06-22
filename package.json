@@ -1,0 +1,10 @@
+{
+  "name": "za-notify",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "express": "^4.13.0",
+    "socket.io": "^1.3.5",
+    "mysql": "^2.7.0"
+  }
+}

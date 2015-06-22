@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>Socket.IO chat</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<div class="container">
+
+    <div id="messages">
+
+    </div>
+
+    <div class="row">
+        <div class="well">
+            <h1>Chat</h1>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+
+
+
+                </div>
+                <div class="panel-footer">
+                    <form action="">
+                        <input id="m" autocomplete="off"/>
+                        <button>Send</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+    var socket = io();
+    $('form').submit(function () {
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+    });
+    socket.on('chat message', function (msg) {
+        $('#messages').append($('<div class="alert alert-success">').text(msg));
+    });
+</script>
+
+</body>
+</html>
